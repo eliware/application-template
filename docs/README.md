@@ -1,13 +1,15 @@
-# Documentation
+# Application Documentation
 
-This directory contains end-user documentation for projects derived from
-`@eliware/project-template`. The root [README](../README.md) is the primary
-starter guide.
+Purpose and scope: this directory contains end-user documentation for
+applications derived from `@eliware/application-template`. The root
+[README](../README.md) is the primary guide.
+
+Setup and usage guidance is in the root README. Support is available through
+the [Eliware community](https://discord.gg/M6aTR9eTwN).
 
 ## Contents
 
 - [Root README](../README.md)
-- [Examples](../examples/README.md)
 - [Release notes](../RELEASE_NOTES.md)
 
 ## Validation

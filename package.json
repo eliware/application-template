@@ -1,74 +1,102 @@
 {
-  "name": "@eliware/project-template",
+  "name": "@eliware/application-template",
   "type": "module",
-  "version": "1.1.0",
-  "description": "A template for starting new Node.js projects.",
-  "main": "project-template.mjs",
+  "version": "9.0.0",
+  "description": "A reusable Node.js application baseline for Eliware projects.",
+  "main": "application.mjs",
   "scripts": {
-    "start": "node project-template.mjs",
-    "test": "npx --node-options=\"--experimental-vm-modules --no-warnings\" jest --detectOpenHandles --silent --coverage",
-    "test:gaps": "npm test 2>&1 | grep '|' | grep -vF '|     100 |      100 |     100 |     100 |'",
-    "lint": "npx oxlint .",
-    "pack": "npm pack --dry-run"
+    "test": "eliware-test",
+    "lint": "eliware-test --lint",
+    "audit": "eliware-test --audit",
+    "format": "eliware-test --format",
+    "format:check": "eliware-test --format-check",
+    "pack": "eliware-test --pack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eliware/project-template.git"
+    "url": "https://github.com/eliware/application-template"
   },
   "keywords": [
-    "project-template",
+    "application-template",
     "nodejs",
+    "application",
     "starter",
     "template"
   ],
   "author": "Eli Sterling, eliware.org <eli@eliware.org>",
   "license": "MIT",
-  "eliware": {
-    "apply": [
-      "general",
-      "application"
-    ],
-    "authority": {
-      "authoritativeFor": [
-        "Project template application structure and starter workflow."
-      ],
-      "notAuthoritativeFor": [
-        "Shared Eliware policy, operations, and publication authorization."
-      ]
-    },
-    "crosslinks": [
-      {
-        "path": "eliware/conventions",
-        "relationship": "relatedAuthority",
-        "authoritativeFor": "Applicable repository conventions."
-      }
-    ]
-  },
   "bugs": {
-    "url": "https://github.com/eliware/project-template/issues"
+    "url": "https://github.com/eliware/application-template/issues"
   },
-  "homepage": "https://github.com/eliware/project-template#readme",
+  "homepage": "https://github.com/eliware/application-template#readme",
+  "private": false,
+  "engines": {
+    "node": "26"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "files": [
+    "application.mjs",
+    "src/main.mjs",
+    "docs/",
+    "specs/",
+    "README.md",
+    "AGENTS.md",
+    "LICENSE",
+    "RELEASE_NOTES.md",
+    "Dockerfile"
+  ],
   "devDependencies": {
-    "jest": "^30.4.2"
+    "@eliware/test": "^8.0.0"
   },
   "jest": {
     "testEnvironment": "node",
     "testMatch": [
-      "**/?(*.)+(spec|test).[jt]s?(x)",
-      "**/?(*.)+(spec|test).mjs"
-    ]
+      "**/tests/**/*.test.mjs"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.mjs"
+    ],
+    "coverageReporters": [
+      "text",
+      "json-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
   },
   "dependencies": {
-    "@eliware/common": "^1.1.7",
-    "dotenv": "^17.4.2"
+    "@eliware/common": "^2.0.0",
+    "dotenv": "^18.0.5"
   },
-  "files": [
-    "project-template.mjs",
-    "examples",
-    "src",
-    "project-template.service",
-    ".env.example",
-    "README.md",
-    "LICENSE"
-  ]
+  "eliware": {
+    "apply": [
+      "general",
+      "application",
+      "npm-published",
+      "ghcr-published"
+    ]
+  },
+  "prettier": {
+    "printWidth": 100,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": false,
+    "quoteProps": "as-needed",
+    "jsxSingleQuote": false,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "proseWrap": "preserve",
+    "endOfLine": "lf"
+  }
 }
