@@ -1,6 +1,6 @@
 # [![eliware.org](https://eliware.org/logos/brand.png)](https://discord.gg/M6aTR9eTwN)
 
-## @eliware/application-template [![npm version](https://img.shields.io/npm/v/@eliware/application-template.svg)](https://www.npmjs.com/package/@eliware/application-template) [![license](https://img.shields.io/github/license/eliware/application-template.svg)](LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yml)
+## @eliware/application-template [![npm](https://img.shields.io/npm/v/@eliware/application-template)](https://www.npmjs.com/package/@eliware/application-template) [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yml)
 
 ## Table of Contents
 
@@ -20,9 +20,11 @@
 
 ## Features
 
-Purpose: provide a reusable Node.js application starting point with environment loading, logging, error handling, signal handling, Jest tests, and container packaging.
+This template owns a reusable application baseline; each derived application owns its behavior, runtime contract, and production operations.
 
-Package description: A reusable Node.js application baseline for Eliware projects. Author: Eli Sterling, eliware.org <eli@eliware.org>. License: MIT.
+Package description: A reusable Node.js application baseline for Eliware projects. Author: Eliware <eliware@eliware.org>. License: MIT.
+
+Purpose: provide a reusable Node.js application starting point with environment loading, logging, error handling, signal handling, Jest tests, and container packaging.
 
 The starter has no network listener or external service behavior. Replace its lifecycle module and metadata with the derived application's behavior.
 
@@ -43,6 +45,8 @@ After the first npm release, install the package with `npm install @eliware/appl
 ## Development
 
 Read [AGENTS.md](AGENTS.md), this README, [specs/README.md](specs/README.md), and [RELEASE_NOTES.md](RELEASE_NOTES.md) before changing the template. `application.mjs` wires runtime dependencies; `src/main.mjs` owns startup and repeatable shutdown behavior, with its mirrored test in `tests/main.test.mjs`.
+
+Documentation: [docs](docs/README.md) · [specifications](specs/README.md)
 
 ## Testing
 
@@ -78,12 +82,14 @@ For help or discussion, join the Eliware community:
 
 ## Links
 
-- Documentation: [docs](docs/README.md) · [specifications](specs/README.md)
-- [Canonical repository profile specifications](https://github.com/eliware/test/blob/main/specs/conventions/README.md)
-- [Home Page](https://eliware.org)
-- [GitHub Repo](https://github.com/eliware/application-template) (`git+https://github.com/eliware/application-template.git`)
-- [npm Package](https://www.npmjs.com/package/@eliware/application-template)
-- [GitHub Org](https://github.com/eliware)
-- [Eli Sterling on GitHub](https://github.com/eli-sterling)
+- [docs](docs/README.md)
+- [Home Page](https://github.com/eliware/application-template#readme)
+- [GitHub repository](https://github.com/eliware/application-template.git)
+- [Eliware](https://eliware.org)
+- [GitHub organization](https://github.com/eliware)
 - [Discord](https://discord.gg/M6aTR9eTwN)
+- [Documentation](https://github.com/eliware/docs/blob/main/repo-map.yaml)
+- [specifications](specs/README.md)
 - [Release Notes](RELEASE_NOTES.md)
+
+- [npm Package](https://www.npmjs.com/package/@eliware/application-template)
