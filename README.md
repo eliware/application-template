@@ -1,6 +1,6 @@
 # [![eliware.org](https://eliware.org/logos/brand.png)](https://discord.gg/M6aTR9eTwN)
 
-## @eliware/application-template [![npm](https://img.shields.io/npm/v/@eliware/application-template)](https://www.npmjs.com/package/@eliware/application-template) [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yml)
+## @eliware/application-template [![npm](https://img.shields.io/npm/v/@eliware/application-template)](https://www.npmjs.com/package/@eliware/application-template) [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yaml)
 
 ## Table of Contents
 
@@ -38,13 +38,18 @@ Clone or create a repository from this template, then run `npm ci`. Replace the 
 
 ## Usage
 
-Run `node application.mjs` to load `.env`, configure the logger, register process error and signal handlers, and log that the starter has started. The starter does not listen on a port or remain active by itself.
+Run `node bin/application-template.mjs` to load `.env`, configure the logger, register process error and signal handlers, and log that the starter has started. The starter does not listen on a port or remain active by itself.
 
-After the first npm release, install the package with `npm install @eliware/application-template`. The package entrypoint is `application.mjs`, which runs with `node application.mjs`. `package.json.version` is the release version source; releases use matching `vMAJOR.MINOR.PATCH` Git tags. Do not treat the npm badge or install command as proof that an unreleased version is available.
+After the first npm release, install the package with `npm install @eliware/application-template`. The package entrypoint is `bin/application-template.mjs`, which runs with `node bin/application-template.mjs`. `package.json.version` is the release version source; releases use matching `vMAJOR.MINOR.PATCH` Git tags. Do not treat the npm badge or install command as proof that an unreleased version is available.
+
+Image: ghcr.io/eliware/application-template
+Pull command: docker pull ghcr.io/eliware/application-template:v11.0.0
+Supported tags: vMAJOR.MINOR.PATCH
+Deployment boundary: publication does not deploy; deploy by immutable version tag and recorded sha256 digest.
 
 ## Development
 
-Read [AGENTS.md](AGENTS.md), this README, [specs/README.md](specs/README.md), and [RELEASE_NOTES.md](RELEASE_NOTES.md) before changing the template. `application.mjs` wires runtime dependencies; `src/main.mjs` owns startup and repeatable shutdown behavior, with its mirrored test in `tests/main.test.mjs`.
+Read [AGENTS.md](AGENTS.md), this README, [specs/README.md](specs/README.md), and [RELEASE_NOTES.md](RELEASE_NOTES.md) before changing the template. `bin/application-template.mjs` wires runtime dependencies; `src/main.mjs` owns startup and repeatable shutdown behavior, with its mirrored test in `tests/main.test.mjs`.
 
 Documentation: [docs](docs/README.md) · [specifications](specs/README.md)
 
@@ -66,7 +71,7 @@ There are no required runtime settings. `LOG_LEVEL` is optional, defaults to `in
 
 ## Operations
 
-Run `node application.mjs` to start; it loads configuration, registers process error and signal handlers, and logs startup. Shutdown runs the repeatable lifecycle hook. Its externally observable workflow is local startup and shutdown; it opens no listener or external connection. Build the container from the repository root with `docker build -t application-template .`. After a GHCR release, pull an exact version using `docker pull ghcr.io/eliware/application-template:<release-tag>`, where `<release-tag>` is `vMAJOR.MINOR.PATCH`. The image is intended to be public after publication. Image publication does not deploy or start an application; any derived service requires its own authorized deployment configuration and handoff. These are the operational boundaries of the starter.
+Run `node bin/application-template.mjs` to start; it loads configuration, registers process error and signal handlers, and logs startup. Shutdown runs the repeatable lifecycle hook. Its externally observable workflow is local startup and shutdown; it opens no listener or external connection. Build the container from the repository root with `docker build -t application-template .`. After a GHCR release, pull an exact version using `docker pull ghcr.io/eliware/application-template:<release-tag>`, where `<release-tag>` is `vMAJOR.MINOR.PATCH`. The image is intended to be public after publication. Image publication does not deploy or start an application; any derived service requires its own authorized deployment configuration and handoff. These are the operational boundaries of the starter.
 
 ## Support
 

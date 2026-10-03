@@ -1,9 +1,9 @@
 {
   "name": "@eliware/application-template",
   "type": "module",
-  "version": "10.0.0",
+  "version": "11.0.0",
   "description": "A reusable Node.js application baseline for Eliware projects.",
-  "main": "application.mjs",
+  "main": "./bin/application-template.mjs",
   "scripts": {
     "test": "eliware-test",
     "lint": "eliware-test --lint",
@@ -38,15 +38,13 @@
     "provenance": true
   },
   "files": [
-    "application.mjs",
-    "src/main.mjs",
+    "src/",
     "docs/",
-    "specs/",
     "README.md",
     "AGENTS.md",
     "LICENSE",
     "RELEASE_NOTES.md",
-    "Dockerfile"
+    "bin/"
   ],
   "devDependencies": {
     "@eliware/test": "^10.0.0"
