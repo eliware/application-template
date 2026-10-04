@@ -9,8 +9,7 @@
     "lint": "eliware-test --lint",
     "audit": "eliware-test --audit",
     "format": "eliware-test --format",
-    "format:check": "eliware-test --format-check",
-    "pack": "eliware-test --pack"
+    "format:check": "eliware-test --format-check"
   },
   "repository": {
     "type": "git",
@@ -29,23 +28,10 @@
     "url": "https://github.com/eliware/application-template/issues"
   },
   "homepage": "https://github.com/eliware/application-template#readme",
-  "private": false,
+  "private": true,
   "engines": {
     "node": "26"
   },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "files": [
-    "src/",
-    "docs/",
-    "README.md",
-    "AGENTS.md",
-    "LICENSE",
-    "RELEASE_NOTES.md",
-    "bin/"
-  ],
   "devDependencies": {
     "@eliware/test": "^10.0.0"
   },
@@ -79,7 +65,6 @@
     "apply": [
       "general",
       "application",
-      "npm-published",
       "ghcr-published"
     ]
   },

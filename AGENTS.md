@@ -22,7 +22,7 @@ Keep each `.mjs` under `src/` mirrored by exactly one `.test.mjs` under `tests/`
 
 ## Validation
 
-Use Node.js 26. Run `npm ci` after dependency changes and `npm test` before handoff. Aggregate validation runs Jest with 100% statement, branch, function, and line coverage, lint, format-check, audit, package validation, and applicable profile checks through `eliware-test`. Use `npm run lint`, `npm run format`, `npm run format:check`, `npm run audit`, or `npm run pack` for targeted stages. CI runs `npm ci` followed by `npm test`.
+Use Node.js 26. Run `npm ci` after dependency changes and `npm test` before handoff. Aggregate validation runs Jest with 100% statement, branch, function, and line coverage, lint, format-check, audit, and applicable profile checks through `eliware-test`. Use `npm run lint`, `npm run format`, `npm run format:check`, or `npm run audit` for targeted stages. CI runs `npm ci` followed by `npm test`.
 
 ## Security
 
@@ -36,10 +36,6 @@ Keep changes actionable, current, and concise. Project-specific requirements may
 
 The executable entrypoint is `bin/application-template.mjs`; implementation is under `src/`. Startup loads `.env`, creates the logger from `LOG_LEVEL`, registers process error and signal handlers, and makes shutdown repeatable. `LOG_LEVEL` is optional, defaults to `info`, and accepts `error`, `warn`, `info`, `http`, `verbose`, `debug`, or `silly`. Safe operational boundary: the starter opens no connections, has no network listener, and performs no external operations. Runtime settings are environment variables only; `package.json` and `.knit/deploy.yaml` are metadata, not runtime configuration.
 
-## npm publication
-
-Package identity: @eliware/application-template. Version source: package.json.version. The exact package.json.files allowlist is src/, docs/, README.md, AGENTS.md, LICENSE, RELEASE_NOTES.md, bin/. Pack validation command: eliware-test --pack (also npm run pack). Pack validation result: require pass before release. npm provenance mechanism: npm Trusted Publishing with provenance. Exact-version public npm registry verification: verify the exact package.json version for @eliware/application-template at registry.npmjs.org. Release approval and execution ownership: Eli and the project developer run TagIt preflight; Eli decides readiness and instructs DevOps; DevOps executes the authorized release. Release authorization and handoff: publication requires explicit authorization through the Operations release handoff; this section grants no permission.
-
 ## GHCR publication
 
-Image visibility is public after publication. The image name is `ghcr.io/eliware/application-template`, built from the repository-root `Dockerfile` and build context. `.github/workflows/publish.yaml` publishes the exact `vMAJOR.MINOR.PATCH` image tag after validation, creates a signed GitHub artifact attestation, verifies the pushed digest and attestation, and records release handoff evidence. Registry credentials use the workflow's GitHub token; no static registry credential is stored. Publication does not deploy the image; deployment requires a separate authorized GitOps handoff.
+Image visibility is public after publication. The image name is `ghcr.io/eliware/application-template`, built from the repository-root `Dockerfile` and build context. `.github/workflows/publish.yaml` publishes the exact `vMAJOR.MINOR.PATCH` image tag after validation, creates a signed GitHub artifact attestation as provenance, verifies the pushed digest and attestation, and records release handoff evidence. Registry credentials use the workflow's GitHub token; no static registry credential is stored. Publication does not deploy the image; deployment requires a separate authorized GitOps handoff.

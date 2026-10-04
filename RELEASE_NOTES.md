@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Continue maintaining the template under v11 conventions; this working package version does not assert registry publication.
+- Make the template GHCR-only and remove registry-publishing configuration.
 
 ## 11.0.0 — 2026-10-03
 
@@ -23,6 +23,6 @@
 
 ### Changed
 
-- Rebuilt the starter as a Node.js 26 application baseline for npm and GHCR publication.
+- Rebuilt the starter as a Node.js 26 application baseline with GHCR publication.
 - Added a focused startup coordinator, mirrored Jest coverage, and standard CI, publication, and Knit configuration.
 - Removed legacy project-template metadata, examples, service files, and authority records.

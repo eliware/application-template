@@ -1,6 +1,6 @@
 # [![eliware.org](https://eliware.org/logos/brand.png)](https://discord.gg/M6aTR9eTwN)
 
-## @eliware/application-template [![npm](https://img.shields.io/npm/v/@eliware/application-template)](https://www.npmjs.com/package/@eliware/application-template) [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yaml)
+@eliware/application-template [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yaml)
 
 ## Table of Contents
 
@@ -34,13 +34,13 @@ Use Node.js 26 and npm. Docker is required only to build and run the container i
 
 ## Setup
 
-Clone or create a repository from this template, then run `npm ci`. Replace the package name, description, repository URLs, keywords, and application behavior before releasing a derived project. Copy `.env.example` to an untracked `.env` only when local environment settings are needed.
+Create a repository from this template, then run `npm ci`. Replace the package name, description, repository URLs, keywords, and application behavior for the derived project. Copy `.env.example` to an untracked `.env` only when local environment settings are needed.
 
 ## Usage
 
 Run `node bin/application-template.mjs` to load `.env`, configure the logger, register process error and signal handlers, and log that the starter has started. The starter does not listen on a port or remain active by itself.
 
-After the first npm release, install the package with `npm install @eliware/application-template`. The package entrypoint is `bin/application-template.mjs`, which runs with `node bin/application-template.mjs`. `package.json.version` is the release version source; releases use matching `vMAJOR.MINOR.PATCH` Git tags. Do not treat the npm badge or install command as proof that an unreleased version is available.
+The executable entrypoint is `bin/application-template.mjs`, which runs with `node bin/application-template.mjs`.
 
 Image: ghcr.io/eliware/application-template
 Pull command: docker pull ghcr.io/eliware/application-template:v11.0.0
@@ -96,5 +96,3 @@ For help or discussion, join the Eliware community:
 - [Documentation](https://github.com/eliware/docs/blob/main/repo-map.yaml)
 - [specifications](specs/README.md)
 - [Release Notes](RELEASE_NOTES.md)
-
-- [npm Package](https://www.npmjs.com/package/@eliware/application-template)
