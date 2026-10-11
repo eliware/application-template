@@ -1,6 +1,8 @@
 # [![eliware.org](https://eliware.org/logos/brand.png)](https://discord.gg/M6aTR9eTwN)
 
-@eliware/application-template [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yaml)
+## @eliware/application-template [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yaml)
+
+A reusable Node.js application baseline for Eliware projects.
 
 ## Table of Contents
 
@@ -15,14 +17,12 @@
 - [Configuration](#configuration)
 - [Operations](#operations)
 - [Support](#support)
-- [License](#license)
 - [Links](#links)
+- [License](#license)
 
 ## Features
 
 This template owns a reusable application baseline; each derived application owns its behavior, runtime contract, and production operations.
-
-Package description: A reusable Node.js application baseline for Eliware projects. Author: Eliware <eliware@eliware.org>. License: MIT.
 
 Purpose: provide a reusable Node.js application starting point with environment loading, logging, error handling, signal handling, Jest tests, and container packaging.
 
@@ -30,7 +30,7 @@ The starter has no network listener or external service behavior. Replace its li
 
 ## Requirements
 
-Use Node.js 26 and npm. Docker is required only to build and run the container image.
+Use Node.js 26 or later and npm. Docker is required only to build and run the container image.
 
 ## Setup
 
@@ -47,6 +47,8 @@ Pull command: docker pull ghcr.io/eliware/application-template:v11.0.0
 Supported tags: vMAJOR.MINOR.PATCH
 Deployment boundary: publication does not deploy; deploy by immutable version tag and recorded sha256 digest.
 
+Read [RELEASE_NOTES.md](RELEASE_NOTES.md) for release history.
+
 ## Development
 
 Read [AGENTS.md](AGENTS.md), this README, [specs/README.md](specs/README.md), and [RELEASE_NOTES.md](RELEASE_NOTES.md) before changing the template. `bin/application-template.mjs` wires runtime dependencies; `src/main.mjs` owns startup and repeatable shutdown behavior, with its mirrored test in `tests/main.test.mjs`.
@@ -59,7 +61,7 @@ Run `npm test` for Jest with 100% statement, branch, function, and line coverage
 
 ## Troubleshooting
 
-If startup fails, check that Node.js 26 is installed and that `.env` contains only supported settings. If logs do not use the selected level, confirm `LOG_LEVEL` is a supported value. Run `npm test` to validate the checkout.
+If startup fails, check that Node.js 26 or later is installed and that `.env` contains only supported settings. If logs do not use the selected level, confirm `LOG_LEVEL` is a supported value. Run `npm test` to validate the checkout.
 
 ## Security
 
@@ -75,23 +77,20 @@ Run `node bin/application-template.mjs` to start; it loads configuration, regist
 
 ## Support
 
-For help or discussion, join the Eliware community:
+For help, questions, or to chat with the author and community, visit:
 
-[![Discord](https://eliware.org/logos/discord_96.png)](https://discord.gg/M6aTR9eTwN)
+[![Discord](https://eliware.org/logos/discord_96.png)](https://discord.gg/M6aTR9eTwN)[![eliware.org](https://eliware.org/logos/eliware_96.png)](https://discord.gg/M6aTR9eTwN)
 
 **[eliware.org on Discord](https://discord.gg/M6aTR9eTwN)**
 
-## License
-
-[license](LICENSE)
-
 ## Links
 
-- [docs](docs/README.md)
-- [Home Page](https://github.com/eliware/application-template#readme)
-- [GitHub repository](https://github.com/eliware/application-template.git)
-- [Eliware](https://eliware.org)
-- [GitHub organization](https://github.com/eliware)
+- [Home Page](https://eliware.org)
+- [GitHub Org](https://github.com/eliware)
+- [GitHub Repo](https://github.com/eliware/application-template)
+- [Bug Reports](https://github.com/eliware/application-template/issues)
 - [Discord](https://discord.gg/M6aTR9eTwN)
-- [specifications](specs/README.md)
-- [Release Notes](RELEASE_NOTES.md)
+
+## License
+
+[MIT © Eliware](LICENSE)

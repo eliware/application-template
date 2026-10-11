@@ -6,6 +6,12 @@
 
 - Make the template GHCR-only and remove registry-publishing configuration.
 
+## 12.0.0 — 2026-10-11
+
+### Changed
+
+- Align template metadata, documentation, and checks with v12 conventions.
+
 ## 11.0.0 — 2026-10-03
 
 ### Changed

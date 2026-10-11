@@ -16,13 +16,15 @@ Required structure: `bin/application-template.mjs` is the executable entrypoint.
 
 Before changing files, read the root README.md, applicable AGENTS.md instructions, applicable documentation, and applicable specifications.
 
-This Development guidance applies repository-wide; nearer AGENTS.md instructions apply within subdirectories. Use Node.js 26, npm, and native ESM `.mjs` modules. Read README.md, AGENTS.md, applicable specifications, implementation, and tests before changing files. Every source and test module must have a single responsibility: one cohesive purpose and one reason to change. Business-logic modules and coordinators are valid, including coordinators of coordinators, when each module does only its own responsibility. When a change introduces a distinct responsibility, create a focused submodule and mirrored test and wire it through its owner; do not add the new responsibility to an existing module. During ordinary review, refactor them when you notice mixed responsibilities. Passing the 100-line source and 200-line test maxima does not prove a module is cohesive or permit mixed responsibilities. The maxima are blocking; passing them does not prove a module has one responsibility.
+This Development guidance applies repository-wide; nearer AGENTS.md instructions apply within subdirectories. Use Node.js 26 or later, npm, and native ESM `.mjs` modules. Read README.md, AGENTS.md, applicable specifications, implementation, and tests before changing files. Every source and test module must have a single responsibility: one cohesive purpose and one reason to change. Business-logic modules and coordinators are valid, including coordinators of coordinators, when each module does only its own responsibility. When a change introduces a distinct responsibility, create a focused submodule and mirrored test and wire it through its owner; do not add the new responsibility to an existing module. During ordinary review, refactor them when you notice mixed responsibilities. Passing the 100-line source and 200-line test maxima does not prove a module is cohesive or permit mixed responsibilities. The maxima are blocking; passing them does not prove a module has one responsibility.
 
 Keep each `.mjs` under `src/` mirrored by exactly one `.test.mjs` under `tests/`; do not add unmatched test files. Keep application-specific tests at the lowest module level that proves their behavior.
 
 ## Validation
 
-Use Node.js 26. Run `npm ci` after dependency changes and `npm test` before handoff. Aggregate validation runs Jest with 100% statement, branch, function, and line coverage, lint, format-check, audit, and applicable profile checks through `eliware-test`. Use `npm run lint`, `npm run format`, `npm run format:check`, or `npm run audit` for targeted stages. CI runs `npm ci` followed by `npm test`.
+Use `npm run lint`, `npm run audit`, `npm run format`, and `npm run format:check` as needed.
+
+Use Node.js 26 or later. Run `npm ci` after dependency changes and `npm test` before handoff. Aggregate validation runs Jest with 100% statement, branch, function, and line coverage, lint, format-check, audit, and applicable profile checks through `eliware-test`. Use `npm run lint`, `npm run format`, `npm run format:check`, or `npm run audit` for targeted stages. CI runs `npm ci` followed by `npm test`.
 
 ## Security
 
@@ -39,3 +41,8 @@ The executable entrypoint is `bin/application-template.mjs`; implementation is u
 ## GHCR publication
 
 Image visibility is public after publication. The image name is `ghcr.io/eliware/application-template`, built from the repository-root `Dockerfile` and build context. `.github/workflows/publish.yaml` publishes the exact `vMAJOR.MINOR.PATCH` image tag after validation, creates a signed GitHub artifact attestation as provenance, verifies the pushed digest and attestation, and records release handoff evidence. Registry credentials use the workflow's GitHub token; no static registry credential is stored. Publication does not deploy the image; deployment requires a separate authorized GitOps handoff.
+
+Image: ghcr.io/eliware/application-template
+Pull command: docker pull ghcr.io/eliware/application-template:v12.0.0
+Supported tags: vMAJOR.MINOR.PATCH
+Deployment boundary: publication does not deploy; deploy by immutable version tag and recorded sha256 digest.

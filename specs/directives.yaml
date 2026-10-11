@@ -1,7 +1,7 @@
-version: "11.0"
+version: "12.0"
 description: Baseline application guidance for repositories created from this template.
 directives:
-  - id: E-1000
+  - id: E-1000.0
     dos:
       - Provide a small native ESM application starting point with mirrored tests, container publication configuration, and documented runtime boundaries.
       - Replace template identity, behavior, and package metadata when creating a derived application.
