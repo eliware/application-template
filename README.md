@@ -35,7 +35,7 @@ Run `npm ci` from the repository root.
 
 ## Usage
 
-Follow this README and the [user guide](docs/README.md). Read [release notes](RELEASE_NOTES.md) for release history. Read [release notes](RELEASE_NOTES.md) for release history.
+Follow this README and the [user guide](docs/README.md). Read [release notes](RELEASE_NOTES.md) for release history.
 
 ## Development
 

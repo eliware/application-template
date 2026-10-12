@@ -58,6 +58,8 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ghcr.io/eliware/application-template:v12.0.0
+      - name: Apply release tag
+        run: docker buildx imagetools create --tag ghcr.io/eliware/application-template:${GITHUB_REF_NAME} ghcr.io/eliware/application-template:v12.0.0
       - name: Attest published image
         uses: actions/attest@v4
         with:
@@ -66,6 +68,8 @@ jobs:
           push-to-registry: true
       - name: Verify version tag resolves to the pushed digest
         run: test "$(docker buildx imagetools inspect ghcr.io/eliware/application-template:v12.0.0 --format '{{.Manifest.Digest}}')" = "${{ steps.image.outputs.digest }}"
+      - name: Verify release tag resolves to the pushed digest
+        run: test "$(docker buildx imagetools inspect ghcr.io/eliware/application-template:${GITHUB_REF_NAME} --format '{{.Manifest.Digest}}')" = "${{ steps.image.outputs.digest }}"
       - name: Inspect image by digest
         run: docker buildx imagetools inspect ghcr.io/eliware/application-template@${{ steps.image.outputs.digest }}
       - name: Verify signed image attestation
