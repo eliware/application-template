@@ -64,8 +64,13 @@ Set `LOG_LEVEL` to `error`, `warn`, `info`, `http`, `verbose`, `debug`, or `sill
 ## Operations
 
 Run `node bin/application-template.mjs` to start the sample. It loads settings and registers process handlers. It does not open a listener.
-Build the image with `docker build -t application-template .`. Use `ghcr.io/eliware/application-template` after an approved release.
-Deploy with a released version tag and its recorded SHA-256 digest. Publication does not deploy the application.
+Build a local image with `docker build -t application-template .`.
+
+> **Template setup — update these values after you create an application repository.**
+>
+> This template has no published image. Set the image visibility to public or private. Set who can pull it. The workflow builds `linux/amd64`; confirm or change the supported architectures. Name the owner for build inputs and architecture decisions. Update this section and the publication workflow before you publish an image.
+
+Deploy with an approved version tag and its recorded SHA-256 digest. Publication does not deploy the application.
 
 ## Support
 
