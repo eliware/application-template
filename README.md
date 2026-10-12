@@ -22,58 +22,51 @@ A reusable Node.js application baseline for Eliware projects.
 
 ## Features
 
-This template owns a reusable application baseline; each derived application owns its behavior, runtime contract, and production operations.
-
-Purpose: provide a reusable Node.js application starting point with environment loading, logging, error handling, signal handling, Jest tests, and container packaging.
-
-The starter has no network listener or external service behavior. Replace its lifecycle module and metadata with the derived application's behavior.
+This template provides a reusable starting point. Each derived repository owns its product behavior and operating decisions.
 
 ## Requirements
 
-Use Node.js 26 or later and npm. Docker is required only to build and run the container image.
+Use Node.js 26 or later and npm 12 or later for repository validation.
 
 ## Setup
 
-Create a repository from this template, then run `npm ci`. Replace the package name, description, repository URLs, keywords, and application behavior for the derived project. Copy `.env.example` to an untracked `.env` only when local environment settings are needed.
+Create a repository from this template. Replace the template name, description, URLs, keywords, and sample content.
+Run `npm ci` from the repository root.
 
 ## Usage
 
-Run `node bin/application-template.mjs` to load `.env`, configure the logger, register process error and signal handlers, and log that the starter has started. The starter does not listen on a port or remain active by itself.
-
-The executable entrypoint is `bin/application-template.mjs`, which runs with `node bin/application-template.mjs`.
-
-Image: ghcr.io/eliware/application-template
-Pull command: docker pull ghcr.io/eliware/application-template:v11.0.0
-Supported tags: vMAJOR.MINOR.PATCH
-Deployment boundary: publication does not deploy; deploy by immutable version tag and recorded sha256 digest.
-
-Read [RELEASE_NOTES.md](RELEASE_NOTES.md) for release history.
+Follow this README and the [user guide](docs/README.md). Read [release notes](RELEASE_NOTES.md) for release history. Read [release notes](RELEASE_NOTES.md) for release history.
 
 ## Development
 
-Read [AGENTS.md](AGENTS.md), this README, [specs/README.md](specs/README.md), and [RELEASE_NOTES.md](RELEASE_NOTES.md) before changing the template. `bin/application-template.mjs` wires runtime dependencies; `src/main.mjs` owns startup and repeatable shutdown behavior, with its mirrored test in `tests/main.test.mjs`.
-
-Documentation: [docs](docs/README.md) · [specifications](specs/README.md)
+Read [AGENTS.md](AGENTS.md) and [the specifications index](specs/README.md) before you change files.
+Keep documents and records in the repository that owns them.
+Read [release notes](RELEASE_NOTES.md) for release history.
 
 ## Testing
 
-Run `npm test` for Jest with 100% statement, branch, function, and line coverage, lint, format-check, audit, package validation, and applicable profile checks through `eliware-test`. Run `npm run format:check` for read-only formatting validation. CI runs `npm ci` followed by `npm test`.
+Run `npm test` before handoff. It runs the repository checks through `eliware-test`.
 
 ## Troubleshooting
 
-If startup fails, check that Node.js 26 or later is installed and that `.env` contains only supported settings. If logs do not use the selected level, confirm `LOG_LEVEL` is a supported value. Run `npm test` to validate the checkout.
+Install the required Node.js and npm versions. Run `npm ci` after dependency changes.
+Review the file and rule in any validation error.
 
 ## Security
 
-Keep `.env`, credentials, tokens, private keys, and machine-specific values out of version control and container images. Do not log secrets or sensitive payloads. Run derived applications under accounts with only the permissions they need.
+Keep credentials, secrets, private data, and runtime state out of Git.
+Use only approved secret stores for secret values.
 
 ## Configuration
 
-There are no required runtime settings. `LOG_LEVEL` is optional, defaults to `info`, and accepts `error`, `warn`, `info`, `http`, `verbose`, `debug`, or `silly`. The process loads `.env` before creating the logger. `package.json` and `.knit/deploy.yaml` are package and deployment metadata, not runtime configuration.
+The sample has no required settings. `LOG_LEVEL` defaults to `info`.
+Set `LOG_LEVEL` to `error`, `warn`, `info`, `http`, `verbose`, `debug`, or `silly`. Copy `.env.example` to an untracked `.env` file for local settings.
 
 ## Operations
 
-Run `node bin/application-template.mjs` to start; it loads configuration, registers process error and signal handlers, and logs startup. Shutdown runs the repeatable lifecycle hook. Its externally observable workflow is local startup and shutdown; it opens no listener or external connection. Build the container from the repository root with `docker build -t application-template .`. After a GHCR release, pull an exact version using `docker pull ghcr.io/eliware/application-template:<release-tag>`, where `<release-tag>` is `vMAJOR.MINOR.PATCH`. The image is intended to be public after publication. Image publication does not deploy or start an application; any derived service requires its own authorized deployment configuration and handoff. These are the operational boundaries of the starter.
+Run `node bin/application-template.mjs` to start the sample. It loads settings and registers process handlers. It does not open a listener.
+Build the image with `docker build -t application-template .`. Use `ghcr.io/eliware/application-template` after an approved release.
+Deploy with a released version tag and its recorded SHA-256 digest. Publication does not deploy the application.
 
 ## Support
 
