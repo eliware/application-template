@@ -11,6 +11,7 @@
 - Add focused test guidance for application developers.
 - Align the deployment command with the shared Knit sequence.
 - Update application guidance for runtime settings, shutdown, and image deployment.
+- The shutdown behavior has a focused module and dedicated tests.
 
 ## 12.0.0 — 2026-10-12
 
