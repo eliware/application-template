@@ -1,5 +1,12 @@
 import { expect, jest, test } from "@jest/globals";
-import { startApplication } from "../src/main.mjs";
+
+jest.unstable_mockModule("@eliware/common", () => ({
+  createLogger: jest.fn(),
+  registerHandlers: jest.fn(),
+  registerSignals: jest.fn(),
+}));
+jest.unstable_mockModule("dotenv", () => ({ config: jest.fn() }));
+const { startApplication } = await import("../src/main.mjs");
 
 function dependencies() {
   let shutdownHook;
@@ -21,19 +28,22 @@ test("loads environment, creates logger, registers handlers and signals, and sta
   const { services, log, shutdownHook } = dependencies();
   const previousLevel = process.env.LOG_LEVEL;
   delete process.env.LOG_LEVEL;
-  const result = startApplication(services);
 
-  expect(services.createLogger).toHaveBeenCalledWith({ level: "info" });
-  expect(services.loadEnvironment).toHaveBeenCalledWith({ quiet: true });
-  expect(services.registerHandlers).toHaveBeenCalledWith({ log });
-  expect(services.registerSignals).toHaveBeenCalledWith({
-    log,
-    shutdownHook: shutdownHook(),
-  });
-  expect(log.info).toHaveBeenCalledWith("Application started");
-  expect(result.shutdown).toBe(shutdownHook());
-  if (previousLevel === undefined) delete process.env.LOG_LEVEL;
-  else process.env.LOG_LEVEL = previousLevel;
+  try {
+    const result = startApplication(services);
+    expect(services.createLogger).toHaveBeenCalledWith({ level: "info" });
+    expect(services.loadEnvironment).toHaveBeenCalledWith({ quiet: true });
+    expect(services.registerHandlers).toHaveBeenCalledWith({ log });
+    expect(services.registerSignals).toHaveBeenCalledWith({
+      log,
+      shutdownHook: shutdownHook(),
+    });
+    expect(log.info).toHaveBeenCalledWith("Application started");
+    expect(result.shutdown).toBe(shutdownHook());
+  } finally {
+    if (previousLevel === undefined) delete process.env.LOG_LEVEL;
+    else process.env.LOG_LEVEL = previousLevel;
+  }
 });
 
 test("uses the configured log level", () => {
@@ -41,16 +51,11 @@ test("uses the configured log level", () => {
   const previousLevel = process.env.LOG_LEVEL;
   process.env.LOG_LEVEL = "debug";
 
-  startApplication(services);
-
-  expect(services.createLogger).toHaveBeenCalledWith({ level: "debug" });
-  if (previousLevel === undefined) delete process.env.LOG_LEVEL;
-  else process.env.LOG_LEVEL = previousLevel;
-});
-
-test("returns the registered shutdown hook", () => {
-  const { services, shutdownHook } = dependencies();
-  const { shutdown } = startApplication(services);
-
-  expect(shutdown).toBe(shutdownHook());
+  try {
+    startApplication(services);
+    expect(services.createLogger).toHaveBeenCalledWith({ level: "debug" });
+  } finally {
+    if (previousLevel === undefined) delete process.env.LOG_LEVEL;
+    else process.env.LOG_LEVEL = previousLevel;
+  }
 });
