@@ -3,7 +3,9 @@ description: Baseline application guidance for repositories created from this te
 directives:
   - id: E-1000.0
     dos:
-      - Provide a small native ESM application starting point with mirrored tests, container publication configuration, and documented runtime boundaries.
-      - Replace template identity, behavior, and package metadata when creating a derived application.
+      - Provide a small native ESM application template with mirrored tests and GHCR
+        publication configuration and documented runtime boundaries.
+      - Replace template identity, behavior, and package metadata when creating a
+        derived application.
     donts:
-      - Do not publish the template identity or placeholder application behavior as a finished product.
+      - Do not publish template identity or placeholder behavior as a finished application.

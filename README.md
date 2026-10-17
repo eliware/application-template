@@ -2,7 +2,7 @@
 
 ## @eliware/application-template [![License](https://img.shields.io/github/license/eliware/application-template)](https://github.com/eliware/application-template/blob/main/LICENSE) [![CI](https://github.com/eliware/application-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/eliware/application-template/actions/workflows/ci.yaml)
 
-A reusable Node.js application baseline for Eliware projects.
+A Node.js application starting point for Eliware projects.
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@ A reusable Node.js application baseline for Eliware projects.
 
 ## Features
 
-This template provides a reusable starting point. Each derived repository owns its product behavior and operating decisions.
+This template starts Node.js applications. Each derived application owns its behavior and operating decisions.
 
 ## Requirements
 
@@ -49,7 +49,7 @@ Run `npm test` before handoff. It runs the repository checks through `eliware-te
 ## Troubleshooting
 
 Install the required Node.js and npm versions. Run `npm ci` after dependency changes.
-Review the file and rule in any validation error.
+For each validation error, examine the named file and rule.
 
 ## Security
 
@@ -68,7 +68,9 @@ Build a local image with `docker build -t application-template .`.
 
 > **Template setup — update these values after you create an application repository.**
 >
-> This template has no published image. Set the image visibility to public or private. Set who can pull it. The workflow builds `linux/amd64`; confirm or change the supported architectures. Name the owner for build inputs and architecture decisions. Update this section and the publication workflow before you publish an image.
+> This template has no published image. Set the image visibility to public or private. Set who can pull it.
+>
+> The workflow builds `linux/amd64`. If the application uses other architectures, update the workflow. Name the owner for build inputs and architecture decisions. Update this section and the publication workflow before you publish an image.
 
 Deploy with an approved version tag and its recorded SHA-256 digest. Publication does not deploy the application.
 
