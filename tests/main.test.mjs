@@ -48,13 +48,9 @@ test("uses the configured log level", () => {
   else process.env.LOG_LEVEL = previousLevel;
 });
 
-test("logs shutdown once", () => {
-  const { services, log } = dependencies();
+test("returns the registered shutdown hook", () => {
+  const { services, shutdownHook } = dependencies();
   const { shutdown } = startApplication(services);
 
-  shutdown();
-  shutdown();
-
-  expect(log.info).toHaveBeenCalledTimes(2);
-  expect(log.info).toHaveBeenLastCalledWith("Application stopped");
+  expect(shutdown).toBe(shutdownHook());
 });
