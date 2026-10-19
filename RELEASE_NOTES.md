@@ -1,17 +1,19 @@
 # Release Notes
 
-## 13.0.0 — 2026-10-17
+## 13.0.0 — 2026-10-19
 
 ### Changed
 
-- Set the package version to 13.0.0 and update the `dotenv` dependency.
-- Align package and README descriptions with the repository map.
-- Update CI to use checkout v7 and fetch the full Git history.
-- Align the GHCR workflow with versioned publishing, image attestations, and digest checks.
-- Add focused test guidance for application developers.
-- Align the deployment command with the shared Knit sequence.
-- Update application guidance for runtime settings, shutdown, and image deployment.
-- The shutdown behavior has a focused module and dedicated tests.
+- Align package metadata, README, AGENTS.md, specifications, and workflows with v13 conventions.
+- Replace the legacy GHCR workflow with versioned publication, image attestations, and digest checks.
+- Update CI to use checkout v7, fetch full Git history, and run current validation steps.
+- Align the Knit deployment workflow with the shared command sequence.
+- Add focused test commands and streamline application startup tests.
+- Move shutdown handling into a focused module and add dedicated tests.
+- Validate LOG_LEVEL before creating the logger.
+- Update application setup, runtime, shutdown, and image deployment guidance.
+- Mark template documentation for replacement after scaffolding.
+- Update npm dependencies and the package lockfile.
 
 ## 12.0.0 — 2026-10-12
 
