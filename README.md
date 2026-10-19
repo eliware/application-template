@@ -60,7 +60,7 @@ Set `LOG_LEVEL` to `error`, `warn`, `info`, `http`, `verbose`, `debug`, or `sill
 
 ## Operations
 
-Run `node bin/application-template.mjs` to start the sample. It loads settings and registers process handlers. It does not open a listener.
+Run `node bin/application-template.mjs` to start the sample. It loads settings and registers process error handlers and shutdown signal handlers. It does not open a listener.
 Build a local image with `docker build -t application-template .`.
 
 > **Template setup — update these values after you create an application repository.**

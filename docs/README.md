@@ -16,7 +16,7 @@ Use this guide to create and run an application from this template.
 
 Install Node.js 26 or later and npm 12 or later. Run `npm ci` from the repository root.
 
-Run `node bin/application-template.mjs` to start the sample. It loads `.env`, creates the logger, and registers process handlers. It does not open a network listener.
+Run `node bin/application-template.mjs` to start the sample. It loads `.env`, creates the logger, and registers process error handlers and shutdown signal handlers. It does not open a network listener.
 
 ## Settings and shutdown
 

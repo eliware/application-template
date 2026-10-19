@@ -1,5 +1,6 @@
 import { createLogger, registerHandlers, registerSignals } from "@eliware/common";
 import { config } from "dotenv";
+import { resolveLogLevel } from "./log-level.mjs";
 import { createShutdownHook } from "./shutdown.mjs";
 
 export const runtimeDependencies = {
@@ -16,7 +17,7 @@ export function startApplication({
   registerSignals,
 }) {
   loadEnvironment({ quiet: true });
-  const log = createLogger({ level: process.env.LOG_LEVEL ?? "info" });
+  const log = createLogger({ level: resolveLogLevel(process.env.LOG_LEVEL) });
   registerHandlers({ log });
   const shutdown = createShutdownHook(log);
   registerSignals({ log, shutdownHook: shutdown });
