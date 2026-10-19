@@ -39,7 +39,7 @@ test("loads environment, creates logger, registers handlers and signals, and sta
       shutdownHook: shutdownHook(),
     });
     expect(log.info).toHaveBeenCalledWith("Application started");
-    expect(result.shutdown).toBe(shutdownHook());
+    expect(result).toEqual({ shutdown: shutdownHook() });
   } finally {
     if (previousLevel === undefined) delete process.env.LOG_LEVEL;
     else process.env.LOG_LEVEL = previousLevel;
