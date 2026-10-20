@@ -31,6 +31,8 @@ Keep credentials, secret values, private data, and runtime state out of Git.
 
 ## Changes
 
+Update the focused tests and user documentation when you change application behavior.
+
 ## Application
 
 Run focused tests first during development.
@@ -43,7 +45,7 @@ Run the full `npm test` suite for final validation before a commit, milestone, o
 
 Image: ghcr.io/eliware/application-template
 
-Pull command: docker pull ghcr.io/eliware/application-template:v13.0.0
+Pull command: docker pull ghcr.io/eliware/application-template:v14.0.0
 
 Supported tags: vMAJOR.MINOR.PATCH
 

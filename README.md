@@ -48,6 +48,9 @@ Run `npm test` before handoff. It runs the repository checks through `eliware-te
 
 ## Troubleshooting
 
+If startup rejects `LOG_LEVEL`, set one of the values listed under Configuration.
+If the sample exits after startup, add an active task or listener to the derived application.
+
 ## Security
 
 Keep credentials, secrets, private data, and runtime state out of Git.

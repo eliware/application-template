@@ -1,6 +1,6 @@
 {
   "name": "@eliware/application-template",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "type": "module",
   "description": "A Node.js application starting point for Eliware projects.",
   "keywords": [
@@ -23,7 +23,7 @@
     "node": ">=26"
   },
   "dependencies": {
-    "@eliware/common": "^12.0.1",
+    "@eliware/common": "^13.0.0",
     "dotenv": "^18.0.8"
   },
   "devDependencies": {
