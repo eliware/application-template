@@ -1,4 +1,4 @@
-version: "14.0"
+version: "15.0"
 description: Baseline application guidance for repositories created from this template.
 directives:
   - id: E-1000.0

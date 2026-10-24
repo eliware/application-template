@@ -45,7 +45,7 @@ Run the full `npm test` suite for final validation before a commit, milestone, o
 
 Image: ghcr.io/eliware/application-template
 
-Pull command: docker pull ghcr.io/eliware/application-template:v14.0.0
+Pull command: docker pull ghcr.io/eliware/application-template:v15.0.0
 
 Supported tags: vMAJOR.MINOR.PATCH
 
