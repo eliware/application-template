@@ -16,11 +16,12 @@
 - Update CI to use the current checkout action and full Git history.
 - Align deployment automation with the shared pull, install, and test commands.
 - Document focused test commands and mark template documentation for replacement.
+- Clarify that the GHCR workflow does not set a target architecture.
 - Run application startup tests faster.
 
 ### Fixed
 
-- Reject unsupported `LOG_LEVEL` values before logger creation.
+- Reject unsupported `LOG_LEVEL` values before logger creation and document this startup failure.
 - Make repeated shutdown calls log the stop message only once.
 
 ## 12.0.0 — 2026-10-12
