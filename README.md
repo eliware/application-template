@@ -60,6 +60,7 @@ Use only approved secret stores for secret values.
 
 The sample has no required settings. `LOG_LEVEL` defaults to `info`.
 Set `LOG_LEVEL` to `error`, `warn`, `info`, `http`, `verbose`, `debug`, or `silly`. Copy `.env.example` to an untracked `.env` file for local settings.
+If `LOG_LEVEL` is not listed here, startup throws a `TypeError`.
 
 ## Operations
 
