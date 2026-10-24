@@ -70,7 +70,7 @@ Build a local image with `docker build -t application-template .`.
 >
 > This template has no published image. Set the image visibility to public or private. Set who can pull it.
 >
-> The workflow builds `linux/amd64`. If the application uses other architectures, update the workflow. Name the owner for build inputs and architecture decisions. Update this section and the publication workflow before you publish an image.
+> The GHCR workflow does not set a target architecture. Set its targets to the architectures that the application supports before publication. Name the owner for build inputs and architecture decisions. Update this section and the publication workflow before you publish an image.
 
 Deploy with an approved version tag and its recorded SHA-256 digest. Publication does not deploy the application.
 

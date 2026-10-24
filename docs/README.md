@@ -34,7 +34,7 @@ Build a local image with `docker build -t application-template .`.
 
 > **Template setup — update these values after you create an application repository.**
 >
-> This template has no published image. Set the image visibility, pull access, and supported architectures. The workflow builds `linux/amd64`. Name the owner for build inputs and architecture decisions. Update the README and publication workflow before you publish an image.
+> This template has no published image. Set the image visibility, pull access, and supported architectures. The GHCR workflow does not set a target architecture. Name the owner for build inputs and architecture decisions. Update the README and publication workflow before you publish an image.
 
 Use a released version tag and its recorded SHA-256 digest for deployment. Image publication does not deploy the application. Use the approved deployment process for each derived application.
 
