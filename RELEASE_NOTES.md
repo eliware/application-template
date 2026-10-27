@@ -1,5 +1,14 @@
 # Release Notes
 
+## 15.0.1 — 2026-10-26
+
+### Changed
+
+- Update the application version to 15.0.1.
+- Upgrade `@eliware/common` and `@eliware/test` to 15.0.1.
+- Update npm dependencies and refresh the lockfile.
+- Update the GHCR pull command to v15.0.1.
+
 ## 15.0.0 — 2026-10-24
 
 ### Added
