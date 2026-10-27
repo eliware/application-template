@@ -8,7 +8,7 @@
 - Upgrade `@eliware/common` and `@eliware/test` to 15.0.1.
 - Update npm dependencies and refresh the lockfile.
 - Update the GHCR pull command to v15.0.1.
-- The release notes describe published template images as GHCR workflow scaffolding and direct derived applications to publish their own images.
+- Document the published starter image and its scaffolding purpose in the README and user guide. Direct derived applications to publish their own images.
 
 ## 15.0.0 — 2026-10-24
 
