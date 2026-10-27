@@ -9,6 +9,7 @@
 - Update npm dependencies and refresh the lockfile.
 - Update the GHCR pull command to v15.0.1.
 - Document the published starter image and its scaffolding purpose in the README and user guide. Direct derived applications to publish their own images.
+- Document public image visibility, runner-selected `linux/amd64`, template build ownership, and derived-only deployment guidance.
 
 ## 15.0.0 — 2026-10-24
 

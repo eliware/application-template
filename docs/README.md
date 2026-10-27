@@ -34,11 +34,13 @@ Build a local image with `docker build -t application-template .`.
 
 > **Template setup — update these values after you create an application repository.**
 >
-> This repository publishes a starter image on release tags. The image tests GHCR publication and provides a workflow example for template users. It is scaffolding, not a finished application. Do not use it. DevOps may delete template images at any time.
+> This repository publishes a public starter image on release tags. The image tests GHCR publication and provides a workflow example for template users. It is scaffolding, not a finished application. Do not use it. DevOps may delete it at any time.
 >
-> Use `.github/workflows/ghcr.yaml` as a starting point for a derived application's GHCR workflow. Set image visibility and pull access. Set supported architectures because the workflow does not set a target architecture. Name the owner for build inputs and architecture decisions. Build and publish an image from the derived application repository.
+> The `eliware/application-template` maintainers own the template image build inputs and platform decision. The workflow leaves `platforms` unset, so the build uses the `ubuntu-latest` runner's platform. The current runner produces `linux/amd64`.
+>
+> Use `.github/workflows/ghcr.yaml` as a starting point for a derived application's GHCR workflow. Set image visibility and pull access. Set target platforms to the architectures that the derived application supports. Name the owner for build inputs and architecture decisions. Build and publish an image from the derived application repository.
 
-Use a released version tag and its recorded SHA-256 digest for deployment. Image publication does not deploy the application. Use the approved deployment process for each derived application.
+For a derived application, deploy its image with an approved version tag and its recorded SHA-256 digest. Do not deploy the template image. Image publication does not deploy the application. Use the approved deployment process for each derived application.
 
 ## Validate
 
