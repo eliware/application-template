@@ -69,9 +69,9 @@ Build a local image with `docker build -t application-template .`.
 
 > **Template setup — update these values after you create an application repository.**
 >
-> This template has no published image. Set the image visibility to public or private. Set who can pull it.
+> This repository publishes a starter image on release tags. The image tests GHCR publication and provides a workflow example for template users. It is scaffolding, not a finished application. Do not use it. DevOps may delete template images at any time.
 >
-> The GHCR workflow does not set a target architecture. Set its targets to the architectures that the application supports before publication. Name the owner for build inputs and architecture decisions. Update this section and the publication workflow before you publish an image.
+> Use `.github/workflows/ghcr.yaml` as a starting point for a derived application's GHCR workflow. Set image visibility and pull access. Set supported architectures because the workflow does not set a target architecture. Name the owner for build inputs and architecture decisions. Build and publish an image from the derived application repository.
 
 Deploy with an approved version tag and its recorded SHA-256 digest. Publication does not deploy the application.
 
